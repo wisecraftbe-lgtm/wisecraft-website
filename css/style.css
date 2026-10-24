@@ -1,0 +1,148 @@
+/* ==========================================================================
+   Wisecraft – feuille de style commune
+   Une seule feuille pour tout le site. La couleur d'accent change selon la
+   classe posée sur <body> : pole-corporate, pole-wood, pole-it, pole-education.
+   ========================================================================== */
+
+/* ---------- Polices (hébergées sur le site : pas de requête vers Google) ---------- */
+@font-face { font-family: "Poppins"; font-weight: 300; font-style: normal; font-display: swap;
+  src: url("../assets/fonts/Poppins-Light.woff") format("woff"); }
+@font-face { font-family: "Poppins"; font-weight: 400; font-style: normal; font-display: swap;
+  src: url("../assets/fonts/Poppins-Regular.woff") format("woff"); }
+@font-face { font-family: "Poppins"; font-weight: 500; font-style: normal; font-display: swap;
+  src: url("../assets/fonts/Poppins-Medium.woff") format("woff"); }
+@font-face { font-family: "Poppins"; font-weight: 700; font-style: normal; font-display: swap;
+  src: url("../assets/fonts/Poppins-Bold.woff") format("woff"); }
+
+/* ---------- Variables (couleurs issues de la charte) ---------- */
+:root {
+  --ink: #171a1f;          /* texte, fond du pied de page */
+  --ink-soft: #4a4f57;     /* texte secondaire */
+  --paper: #f7f5f1;        /* fond du site */
+  --line: #ddd7cc;         /* filets discrets */
+
+  --wood: #985426;      --wood-2: #c58a52;      --wood-tint: #e9e0d3;
+  --it: #0e527a;        --it-2: #2e7caa;        --it-tint: #e2edf3;   /* tint : dérivé de la charte */
+  --edu: #244f32;       --edu-2: #6d8c72;       --edu-tint: #e4ece6;  /* tint : dérivé de la charte */
+
+  /* Accent par défaut (identité mère) */
+  --accent: var(--wood);
+  --tint: var(--wood-tint);
+
+  --font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --wrap: 72rem;
+}
+
+/* Une classe sur <body> = une couleur d'accent pour toute la page */
+.pole-corporate { --accent: var(--wood); --tint: var(--wood-tint); }
+.pole-wood      { --accent: var(--wood); --tint: var(--wood-tint); }
+.pole-it        { --accent: var(--it);   --tint: var(--it-tint); }
+.pole-education { --accent: var(--edu);  --tint: var(--edu-tint); }
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--font); font-size: 1rem; line-height: 1.7; font-weight: 400;
+}
+img, svg { max-width: 100%; height: auto; display: block; }
+h1, h2, h3 { line-height: 1.15; margin: 0 0 .6em; font-weight: 500; letter-spacing: -.01em; }
+p { margin: 0 0 1em; max-width: 62ch; }
+a { color: var(--accent); text-underline-offset: .2em; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { width: min(100% - 2.5rem, var(--wrap)); margin-inline: auto; }
+
+/* Lien d'évitement (clavier / lecteur d'écran) */
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: #fff; padding: .6rem 1rem; z-index: 10; }
+.skip:focus { left: 0; }
+
+/* ---------- En-tête ---------- */
+.site-header { border-bottom: 1px solid var(--line); background: var(--paper); }
+.site-header .wrap {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: .5rem 2rem; padding-block: 1rem;
+}
+.logo img { height: 2.75rem; width: auto; }
+
+.nav { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; margin: 0; padding: 0; list-style: none; }
+.nav a {
+  display: inline-block; padding: .4rem 0; color: var(--ink); text-decoration: none;
+  font-size: .95rem; font-weight: 500; border-bottom: 3px solid transparent;
+}
+/* Chaque entrée de pôle garde sa propre couleur au survol et sur la page courante */
+.nav .n-wood      { --c: var(--wood); }
+.nav .n-it        { --c: var(--it); }
+.nav .n-education { --c: var(--edu); }
+.nav .n-base      { --c: var(--ink); }
+.nav a:hover, .nav a[aria-current="page"] { border-bottom-color: var(--c); }
+
+/* ---------- Sections ---------- */
+.section { padding-block: clamp(3rem, 8vw, 5.5rem); }
+.section h2 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); font-weight: 500; }
+
+/* ---------- Héros ---------- */
+.hero { padding-block: clamp(3rem, 9vw, 6.5rem) clamp(2rem, 5vw, 3.5rem); }
+.hero h1 { font-size: clamp(2.1rem, 5.6vw, 3.9rem); font-weight: 300; max-width: 18ch; }
+.hero h1 strong { font-weight: 700; }
+.lead { font-size: clamp(1.05rem, 1.8vw, 1.25rem); color: var(--ink-soft); max-width: 50ch; }
+
+/* Héros d'une page de pôle : bandeau teinté + logo du pôle */
+.hero-pole { background: var(--tint); }
+.hero-pole .wrap { display: grid; gap: 2rem; align-items: center; }
+.hero-pole .hero-logo { width: min(100%, 15rem); margin-inline: auto; }
+@media (min-width: 52rem) {
+  .hero-pole .wrap { grid-template-columns: 1fr auto; }
+  .hero-pole .hero-logo { width: 17rem; }
+}
+
+/* ---------- Acronyme W-I-S-E : les initiales en gras dans chaque nom ---------- */
+.wise-grid { display: grid; gap: 0; margin-top: 2.5rem; }
+.wise-pole { padding: 1.75rem 0; border-top: 4px solid var(--accent); }
+.wise-pole:first-child { border-top-color: var(--wood); }
+.wise-pole.pole-it        { --accent: var(--it); }
+.wise-pole.pole-wood      { --accent: var(--wood); }
+.wise-pole.pole-education { --accent: var(--edu); }
+.wise-name { font-size: clamp(2rem, 4.2vw, 3rem); font-weight: 300; margin-bottom: .5rem; }
+.wise-name b { font-weight: 700; color: var(--accent); }
+.wise-pole p { color: var(--ink-soft); }
+.wise-pole a { font-weight: 500; }
+@media (min-width: 52rem) {
+  .wise-grid { grid-template-columns: repeat(3, 1fr); column-gap: 2.5rem; }
+}
+
+/* ---------- Listes de prestations ---------- */
+.split { display: grid; gap: 2.5rem; }
+@media (min-width: 52rem) { .split { grid-template-columns: 1fr 1fr; gap: 4rem; } }
+.checklist { list-style: none; padding: 0; margin: 0 0 1.5rem; max-width: 36rem; }
+.checklist li { padding: .6rem 0 .6rem 1.6rem; border-bottom: 1px solid var(--line); position: relative; }
+.checklist li::before {
+  content: ""; position: absolute; left: 0; top: 1.25rem; width: .6rem; height: .6rem;
+  border-radius: 50%; background: var(--accent);
+}
+
+/* ---------- Bouton ---------- */
+.button {
+  display: inline-block; padding: .8rem 1.6rem; background: var(--accent); color: #fff;
+  font-weight: 500; text-decoration: none; border-radius: 2px;
+}
+.button:hover { background: var(--ink); }
+
+/* ---------- Pied de page ---------- */
+.site-footer { background: var(--ink); color: #e8e4dc; padding-block: 2.5rem; font-size: .92rem; }
+.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.25rem 2rem; align-items: center; }
+.site-footer p { margin: 0; color: #c9c4ba; }
+.site-footer a { color: #fff; }
+.footer-nav { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; list-style: none; margin: 0; padding: 0; }
+.footer-logo { height: 2.25rem; width: auto; }
+
+/* ---------- Mouvement réduit : rien à désactiver, le site est volontairement statique ---------- */
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* ---------- Utilitaire : texte lu par les lecteurs d'écran mais invisible ---------- */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
