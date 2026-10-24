@@ -1,4 +1,90 @@
 <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wisecraft – Bois, solutions IT et formation</title>
+  <meta name="description" content="Wisecraft réunit trois savoir-faire : le bois, les solutions IT et la formation, avec le même soin du détail.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
 
-Bonjour 
-Test 2
+<!-- La classe de <body> choisit la couleur d'accent : pole-corporate, pole-wood, pole-it ou pole-education -->
+<body class="pole-corporate">
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <!-- ===== EN-TÊTE COMMUN : à copier à l'identique dans chaque page ===== -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="index.html" aria-label="Wisecraft, retour à l'accueil">
+        <img src="assets/logos/wisecraft-general-mono-complet-noir.svg" alt="Wisecraft" width="153" height="44">
+      </a>
+      <nav aria-label="Navigation principale">
+        <ul class="nav">
+          <!-- Sur chaque page, mettre aria-current="page" uniquement sur le lien de la page courante -->
+          <li><a class="n-base" href="index.html" aria-current="page">Accueil</a></li>
+          <li><a class="n-wood" href="bois.html">Bois</a></li>
+          <li><a class="n-it" href="it-solutions.html">IT Solutions</a></li>
+          <li><a class="n-education" href="education.html">Éducation</a></li>
+          <li><a class="n-base" href="a-propos.html">À propos</a></li>
+          <li><a class="n-base" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- ===== FIN DE L'EN-TÊTE COMMUN ===== -->
+
+  <main id="contenu">
+    <section class="hero">
+      <div class="wrap">
+        <!-- Texte proposé, à valider -->
+        <h1>Le travail <strong>bien fait</strong>, du bois à l'informatique.</h1>
+        <p class="lead">Wisecraft réunit trois savoir-faire : le bois, les solutions IT et la formation. Le même soin du détail, la même proximité.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="titre-wise">
+      <div class="wrap">
+        <h2 id="titre-wise">Ce que dit le nom</h2>
+        <p>WISE se lit en trois temps : le <strong>W</strong> de Wood, le <strong>I</strong> et le <strong>S</strong> de IT Solutions, le <strong>E</strong> d'Education. Quant à « Craft », c'est l'artisanat : travailler à taille humaine, mais travailler bien.</p>
+
+        <div class="wise-grid">
+          <article class="wise-pole pole-wood">
+            <h3 class="wise-name"><b>W</b>ood</h3>
+            <p>Bois de chauffage, charpente, carport, auvent, pool house, cuisine extérieure. Pour les particuliers.</p>
+            <a href="bois.html">Voir le pôle Bois</a>
+          </article>
+
+          <article class="wise-pole pole-it">
+            <h3 class="wise-name"><b>I</b>T <b>S</b>olutions</h3>
+            <p>Solutions informatiques et conseil, en particulier en management et gouvernance IT. Pour les associations, les petites structures, les entreprises et les indépendants.</p>
+            <a href="it-solutions.html">Voir le pôle IT Solutions</a>
+          </article>
+
+          <article class="wise-pole pole-education">
+            <h3 class="wise-name"><b>E</b>ducation</h3>
+            <p>Formations et cours, conçus avec les partenaires qui les organisent ou les regroupent.</p>
+            <a href="education.html">Voir le pôle Éducation</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== PIED DE PAGE COMMUN : à copier à l'identique dans chaque page ===== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <img class="footer-logo" src="assets/logos/wisecraft-general-mono-complet-blanc.svg" alt="Wisecraft" width="125" height="36">
+      <ul class="footer-nav">
+        <li><a href="bois.html">Bois</a></li>
+        <li><a href="it-solutions.html">IT Solutions</a></li>
+        <li><a href="education.html">Éducation</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <p>© 2026 Wisecraft</p>
+    </div>
+  </footer>
+  <!-- ===== FIN DU PIED DE PAGE COMMUN ===== -->
+</body>
+</html>
